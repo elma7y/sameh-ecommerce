@@ -1,0 +1,67 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+.container {
+  background-color: $background-color;
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  .profilepic {
+    h1 {
+      background-color: $secondary-color;
+      color: $background-color;
+      border: 2px solid $main-color;
+      transition: 1s;
+      font-weight: 500;
+    }
+    h1:hover {
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+    }
+    p {
+      color: $main-color;
+    }
+    label {
+      cursor: pointer;
+      color: $background-color;
+      border-radius: 12px;
+      padding: 10px;
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+      transition: 1s;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+    }
+    label:hover {
+      background-color: $secondary-color;
+      border: 2px solid $main-color;
+    }
+    input {
+      display: none;
+    }
+    .pic {
+      img {
+        width: 200px;
+        height: 150px;
+        box-shadow: 0 0 10px $secondary-color;
+        transition: 1s;
+      }
+      img:hover {
+        box-shadow: 0 0 20px $secondary-color;
+        filter: grayscale(100%);
+      }
+    }
+    .save {
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+      transition: 1s;
+      font-weight: bold;
+    }
+    .save:hover {
+      background-color: $secondary-color;
+      border: 2px solid $main-color;
+      color: $background-color;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+<section class="container">
+  <h1 class="text-center text-capitalize mt-3 mb-5 p-2">add a new product</h1>
+  <form [formGroup]="newProduct">
+    <div
+      class="row pb-4 gap-2 gap-lg-5 gap-md-5 justify-content-center flex-column flex-lg-row flex-md-row"
+    >
+      <div class="close text-end mt-3">
+        <i (click)="closeDialog()" class="bi bi-x-square p-2"></i>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 mt-4 title">
+        <label class="text-capitalize fs-5 text-center" for="title">
+          title
+          <input
+            formControlName="title"
+            class="w-100 text-capitalize mt-3"
+            type="text"
+            placeholder="title"
+            id="title"
+          />
+        </label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 mt-4 price">
+        <label class="text-capitalize fs-5 text-center" for="price">
+          price
+          <input
+            formControlName="price"
+            class="w-100 text-capitalize mt-3"
+            type="number"
+            placeholder="price"
+            id="price"
+            min="1"
+          />
+        </label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 mt-4 image">
+        <label
+          class="text-capitalize fs-5 text-center"
+          id="loading"
+          for="image"
+        >
+          upload product's image
+          <button
+            (click)="openfile()"
+            class="btn text-capitalize fs-5 fw-bold w-100 mt-3"
+          >
+            upload
+          </button>
+          <input
+            class="w-100"
+            (change)="acceptpic($event)"
+            type="file"
+            id="image"
+            accept="image/png, image/gif, image/jpeg"
+          />
+        </label>
+      </div>
+    </div>
+    <div
+      class="row gap-2 gap-lg-5 gap-md-5 flex-column-reverse justify-content-center flex-lg-row flex-md-row second"
+    >
+      <div
+        class="col-lg-3 col-md-3 col-sm-3 text-center d-flex flex-column text-area mb-3 mb-lg-0 mb-md-0"
+      >
+        <label
+          class="text-capitalize fs-5 text-center mb-3 fw-bold"
+          for="desc text-capitalize"
+        >
+          description
+        </label>
+        <textarea formControlName="desc" class="p-3 fs-5" id="desc"></textarea>
+      </div>
+      <div
+        class="col-lg-3 col-md-3 col-sm-3 text-center mb-3 mb-lg-0 mb-md-0 d-flex flex-column image-view justify-content-center align-items-center align-self-start"
+      >
+        <select
+          class="form-select cat mt-5"
+          aria-label="Default select example"
+          formControlName="categorie"
+        >
+          <option disabled value="">categories</option>
+          <option value="electronics">electronics</option>
+          <option value="jewelery">jewelery</option>
+          <option value="men's clothing">men's clothing</option>
+          <option value="women's clothing">women's clothing</option>
+        </select>
+      </div>
+      <div
+        class="col-lg-3 col-md-3 col-sm-3 text-center mb-3 mb-lg-0 mb-md-0 d-flex flex-column image-view justify-content-center align-items-center"
+      >
+        <img class="img-fluid" src="{{ picture }}" alt="" />
+      </div>
+    </div>
+    <div class="row second">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-4 add">
+        <button
+          [disabled]="newProduct.invalid"
+          (click)="addProduct()"
+          class="btn text-capitalize w-50 mb-5 p-2"
+        >
+          add product
+        </button>
+      </div>
+    </div>
+  </form>
+</section>

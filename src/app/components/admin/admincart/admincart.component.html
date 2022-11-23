@@ -1,0 +1,95 @@
+<section
+  [ngStyle]="greenmode ? green : null"
+  class="container mt-5 mt-lg-0 mt-md-0 mb-5"
+>
+  <h2 class="title text-capitalize text-center fs-3 p-2">admin cart</h2>
+  <form class="date text-center" [formGroup]="daterange">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4 col-md-4">
+        <label class="text-capitalize fs-5 fw-bold mb-2" for=""
+          >start date</label
+        >
+        <input type="date" formControlName="start" class="form-control" />
+      </div>
+      <div class="col-lg-4 col-sm-4 col-md-4">
+        <label class="text-capitalize fs-5 fw-bold mb-2" for="">end date</label>
+        <input type="date" formControlName="end" class="form-control" />
+      </div>
+      <div
+        class="col-lg-4 col-sm-4 col-md-4 d-flex mt-3 justify-content-center align-items-end"
+      >
+        <button
+          class="btn text-capitalize fw-bold w-100 apply"
+          (click)="submitdate()"
+        >
+          apply
+        </button>
+      </div>
+    </div>
+  </form>
+  <div [ngStyle]="greenmode ? green : null" *ngIf="!spinner" class="container">
+    <div class="row d-none d-lg-flex d-md-flex head">
+      <div class="col-lg-4 col-md-4 col-sm-4 date">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">date</div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 quantity">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">
+          quantity
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 control">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">
+          controls
+        </div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center p-2 men mb-3"
+      *ngFor="let cart of allcart; let index = index"
+    >
+      <div
+        class="col-lg-4 col-md-4 col-sm-4 date mb-3 mb-lg-0 mb-md-0 mb-sm-0 mt-3 mt-lg-0 mt-md-0 mt-sm-0"
+      >
+        <p class="text-center m-0 fs-5 fw-bold">
+          <span
+            class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none d-sm-none me-2"
+            >date: </span
+          >{{ cart.date | date }}
+        </p>
+      </div>
+      <div
+        class="col-lg-4 col-md-4 col-sm-4 quantity mb-3 mb-lg-0 mb-md-0 mb-sm-0"
+      >
+        <p class="text-center m-0 fs-5 fw-bold">
+          <span
+            class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none d-sm-none me-2"
+            >quantity:
+          </span>
+          {{ cart.products.length }}
+        </p>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 delete">
+        <div
+          class="body d-flex gap-3 align-items-center justify-content-center"
+        >
+          <button
+            (click)="deleteorder(index)"
+            class="btn text-capitalize fw-bold fs-6"
+          >
+            delete
+          </button>
+          <button
+            (click)="viewCart(index)"
+            routerLink="/admin-view"
+            class="btn text-capitalize fw-bold fs-6 view"
+          >
+            view
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section [ngStyle]="greenmode ? green : null" *ngIf="spinner" class="container">
+  <app-spinner></app-spinner>
+</section>

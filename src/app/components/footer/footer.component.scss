@@ -1,0 +1,170 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+.footer {
+  .active {
+    color: $secondary-color;
+  }
+  background-color: $background-color;
+  .first {
+    img {
+      animation: blackandwhite 3s infinite linear;
+    }
+    p {
+      color: $secondary-color;
+    }
+  }
+  .copywrite {
+    color: $secondary-color;
+  }
+  .links {
+    ul {
+      color: $main-color;
+      li {
+        cursor: pointer;
+        transition: 1s;
+      }
+      li:hover {
+        color: $secondary-color;
+      }
+    }
+    h5 {
+      color: $secondary-color;
+    }
+  }
+  .free {
+    h5 {
+      color: $secondary-color;
+    }
+    p {
+      color: $main-color;
+    }
+    .main-btn {
+      background-color: $main-color;
+      color: $background-color;
+      font-weight: 500;
+      border: 2px solid $secondary-color;
+      transition: 1s;
+    }
+    .main-btn:hover {
+      background-color: $secondary-color;
+      border: 2px solid $main-color;
+    }
+  }
+}
+.footer .copywrite > span {
+  color: $main-color;
+  animation: heartscale 3s infinite linear;
+}
+.footer .copywrite div span {
+  color: $main-color;
+}
+.footer .myicons ul li a svg {
+  width: 30px;
+  height: 30px;
+}
+.footer .myicons ul li .facebook {
+  color: white;
+  background-color: #1877f2;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.facebook:hover {
+  filter: grayscale(100%);
+}
+.facebook::before {
+  animation: rotation 3s infinite linear;
+}
+.footer .myicons ul li .twitter {
+  color: white;
+  background-color: #1da1f2;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.twitter::before {
+  animation: rotation 3s infinite linear;
+}
+.twitter:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .linkedin {
+  color: white;
+  background-color: #0077b5;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.linkedin::before {
+  animation: rotation 3s infinite linear;
+}
+.linkedin:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .youtube {
+  color: white;
+  background-color: #ff0000;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.youtube::before {
+  animation: rotation 3s infinite linear;
+}
+.youtube:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .whatsapp {
+  color: white;
+  background-color: #075e54;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.whatsapp::before {
+  animation: rotation 3s infinite linear;
+}
+.whatsapp:hover {
+  filter: grayscale(100%);
+}
+// animations
+@keyframes blackandwhite {
+  0% {
+    filter: grayscale(0%);
+  }
+  25% {
+    filter: grayscale(50%);
+  }
+  50% {
+    filter: grayscale(100%);
+  }
+  75% {
+    filter: grayscale(50%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heartscale {
+  0% {
+    font-size: 16px;
+    color: $main-color;
+  }
+  50% {
+    font-size: 20px;
+    color: #ff0000;
+  }
+  100% {
+    font-size: 16px;
+    color: $main-color;
+  }
+}

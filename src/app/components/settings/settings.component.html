@@ -1,0 +1,59 @@
+<section
+  [ngStyle]="greenmode ? green : null"
+  class="d-flex container gap-5 flex-column flex-lg-row flex-md-row"
+>
+  <div class="left d-flex justify-content-center align-items-center">
+    <ul>
+      <li
+        routerLinkActive="active"
+        class="fs-3 text-capitalize mb-4 p-3 text-center"
+        routerLink="/settings/account-settings"
+      >
+        account settings
+      </li>
+      <li
+        routerLinkActive="active"
+        class="fs-3 text-capitalize mb-4 p-3 text-center"
+        routerLink="/settings/appearance"
+      >
+        appearance
+      </li>
+      <li
+        routerLinkActive="active"
+        class="fs-3 text-capitalize mb-4 p-3 text-center"
+        routerLink="/settings/security"
+      >
+        history
+      </li>
+      <li
+        routerLinkActive="active"
+        class="fs-3 text-capitalize mb-4 p-3 text-center"
+        routerLink="/settings/notifications"
+      >
+        notifications
+      </li>
+    </ul>
+  </div>
+  <div class="main w-100">
+    <h1 *ngIf="accountSettings" class="text-capitalize text-center p-2">
+      hello {{ username }}
+    </h1>
+    <p *ngIf="accountSettings" class="p-3 fs-5 text-capitalize fw-bold">
+      in settings section you can control wheter you want to <span>:</span>
+    </p>
+    <p *ngIf="accountSettings" class="p-3 fs-5 text-capitalize fw-bold one">
+      <span>1-</span> delete your account
+    </p>
+    <p *ngIf="accountSettings" class="p-3 fs-5 text-capitalize fw-bold two">
+      <span>2-</span> change the theme color of the site
+    </p>
+    <p *ngIf="accountSettings" class="p-3 fs-5 text-capitalize fw-bold three">
+      <span>3-</span> show your purchase history
+    </p>
+    <p *ngIf="accountSettings" class="p-3 fs-5 text-capitalize fw-bold four">
+      <span>4-</span> control whether you want to receive discount notifications
+      or not
+    </p>
+    <router-outlet></router-outlet>
+  </div>
+</section>

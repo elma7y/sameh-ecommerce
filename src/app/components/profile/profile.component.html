@@ -1,0 +1,330 @@
+<div [ngStyle]="greenmode ? green : null" class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="title">
+        <img src="{{ profilepic }}" alt="" />
+        <h1 class="text-capitalize text-center fs-3 p-2">profile</h1>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-person d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">username</h2>
+        </div>
+        <input
+          placeholder="UserName"
+          id="username"
+          class="mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5 w-75"
+          type="text"
+          value="{{ username }}"
+          [disabled]="editusername"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editusername = !editusername"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updateuser()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-person-fill d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">password</h2>
+        </div>
+        <div class="passcontainer mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5">
+          <input
+            placeholder="Password"
+            id="password"
+            class="w-100"
+            [type]="showpass ? 'text' : 'password'"
+            value="{{ password }}"
+            [disabled]="editpass"
+          />
+          <i (click)="showpass = !showpass" class="bi bi-eye-fill eyes"></i>
+        </div>
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editpass = !editpass"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updatepassword()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-envelope d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">email</h2>
+        </div>
+        <input
+          placeholder="Email"
+          id="email"
+          class="w-75 mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5"
+          type="email"
+          value="{{ email }}"
+          [disabled]="editemail"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editemail = !editemail"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updateemail()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-person-badge d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">firstname</h2>
+        </div>
+        <input
+          placeholder="FirstName"
+          id="fname"
+          class="w-75 mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5"
+          type="text"
+          value="{{ firstname }}"
+          [disabled]="editfn"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editfn = !editfn"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updatefname()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-person-badge-fill d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">lastname</h2>
+        </div>
+        <input
+          placeholder="LastName"
+          id="lname"
+          class="w-75 mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5"
+          type="text"
+          value="{{ lastname }}"
+          [disabled]="editln"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editln = !editln"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updatelname()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-telephone d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">phone</h2>
+        </div>
+        <input
+          placeholder="PhoneNumber"
+          id="phone"
+          class="w-75 mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5"
+          type="text"
+          value="0{{ number }}"
+          [disabled]="editphone"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editphone = !editphone"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updatephone()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-gender-ambiguous d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">gender</h2>
+        </div>
+        <input
+          placeholder="Gender"
+          id="gender"
+          class="w-75 mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5"
+          type="text"
+          value="{{ gender }}"
+          [disabled]="editgender"
+        />
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editgender = !editgender"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updategender()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-calendar-check-fill d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">d.o.b</h2>
+        </div>
+        <div class="passcontainer mb-3 mb-lg-0 mb-md-0 me-lg-5 me-md-5">
+          <input
+            ngbDatepicker
+            #d="ngbDatepicker"
+            [minDate]="{ year: 1950, month: 1, day: 1 }"
+            [maxDate]="{ year: 2015, month: 12, day: 31 }"
+            (focus)="open()"
+            placeholder="Date Of Birth"
+            name="dp"
+            id="dob"
+            class="w-100"
+            type="text"
+            value="{{ date | json }}"
+            [disabled]="editdob"
+          />
+          <i
+            id="mydate"
+            (click)="d.toggle()"
+            class="bi bi-calendar-date-fill cal"
+          ></i>
+        </div>
+
+        <div class="edit d-flex w-50">
+          <button
+            (click)="editdob = !editdob"
+            class="btn text-capitalize p-2 w-100"
+          >
+            edit
+          </button>
+          <button
+            (click)="updatedob()"
+            class="btn save text-capitalize p-2 w-100 ms-4"
+          >
+            save
+          </button>
+        </div>
+      </div>
+      <div
+        class="box d-flex align-items-center flex-column flex-lg-row flex-md-row mb-3 mb-lg-1 mb-md-1"
+      >
+        <div
+          class="d-flex p-2 b-12 head text-center text-lg-start text-md-start"
+        >
+          <i
+            class="bi bi-images d-flex align-items-center me-0 me-lg-3 me-md-3 fs-5"
+          ></i>
+          <h2 class="text-capitalize m-0">profile picture</h2>
+        </div>
+        <div class="changepic mb-3 mb-lg-0 mb-md-0">
+          <label class="w-100 fs-5" for="mypic">
+            choose your picture
+            <input
+              accept="image/png, image/gif, image/jpeg"
+              id="mypic"
+              type="file"
+              (change)="acceptpic($event)"
+            />
+          </label>
+        </div>
+        <div class="edit d-flex w-75 justify-content-center">
+          <button
+            (click)="savepic()"
+            class="btn save text-capitalize ms-0 ms-lg-5 ms-md-4 p-2 w-75"
+          >
+            save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

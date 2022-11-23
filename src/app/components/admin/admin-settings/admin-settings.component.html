@@ -1,0 +1,40 @@
+<section [ngStyle]="greenmode ? green : null" class="container mb-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <app-notifications></app-notifications>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <app-appearance></app-appearance>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 profilepic">
+      <h1 class="text-capitalize text-center p-2">profile picture</h1>
+      <p class="p-2 text-capitalize lh-lg fs-6">
+        you can change your profile picture here...
+      </p>
+      <div class="choose d-flex justify-content-center">
+        <label class="w-50 fs-5" for="mypic">
+          choose your picture
+          <input
+            accept="image/png, image/gif, image/jpeg"
+            id="mypic"
+            type="file"
+            (change)="acceptpic($event)"
+          />
+        </label>
+      </div>
+
+      <div class="pic text-center mt-5 mb-5">
+        <img class="img-fluid" src="{{ profilepic }}" alt="" />
+      </div>
+      <div class="edit d-flex w-100 justify-content-center">
+        <button (click)="savepic()" class="btn save text-capitalize p-2 w-100">
+          save
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+.container {
+  background-color: $background-color;
+  color: white;
+  padding: 20px;
+  border-radius: 25px;
+  h2 {
+    background-color: $secondary-color;
+    color: $background-color;
+    border: 2px solid $main-color;
+    transition: 1s;
+    font-weight: 500;
+  }
+  h2:hover {
+    background-color: $main-color;
+    border: 2px solid $secondary-color;
+  }
+  .row {
+    border-radius: 25px;
+  }
+  .men {
+    background-color: $secondary-color;
+    color: $background-color;
+    border: 2px solid $main-color;
+    box-shadow: 0 0 10px $secondary-color;
+    transition: 1s;
+  }
+  .men:hover {
+    box-shadow: 0 0 20px $secondary-color;
+  }
+  .delete {
+    button {
+      background-color: $main-color;
+      color: $background-color;
+      width: 140px;
+      border: 2px solid $background-color;
+      transition: 1s;
+    }
+    button:hover {
+      background-color: $background-color;
+      color: $main-color;
+      border: 2px solid $main-color;
+    }
+    .view {
+      background-color: $background-color;
+      color: $main-color;
+      width: 140px;
+      border: 2px solid $main-color;
+      transition: 1s;
+    }
+    .view:hover {
+      background-color: $main-color;
+      color: $background-color;
+      border: 2px solid $background-color;
+    }
+  }
+  .date {
+    label {
+      color: $main-color;
+    }
+    button {
+      background-color: $main-color;
+      color: $background-color;
+      border: 2px solid $secondary-color;
+      transition: 1s;
+    }
+    button:hover {
+      background-color: $secondary-color;
+      border: 2px solid $main-color;
+    }
+  }
+}

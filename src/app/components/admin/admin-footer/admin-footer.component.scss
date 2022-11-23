@@ -1,0 +1,103 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+.footer {
+  background-color: $background-color;
+  .free {
+    h1 {
+      color: $main-color;
+      transition: 1s;
+    }
+    h1:hover {
+      color: $secondary-color;
+    }
+    .main-btn {
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+      font-weight: bold;
+      transition: 1s;
+    }
+    .main-btn:hover {
+      background-color: $secondary-color;
+      border: 2px solid $main-color;
+    }
+  }
+}
+.footer .myicons ul li a svg {
+  width: 30px;
+  height: 30px;
+}
+.footer .myicons ul li .facebook {
+  color: white;
+  background-color: #1877f2;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.facebook:hover {
+  filter: grayscale(100%);
+}
+.facebook::before {
+  animation: rotation 3s infinite linear;
+}
+.footer .myicons ul li .twitter {
+  color: white;
+  background-color: #1da1f2;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.twitter::before {
+  animation: rotation 3s infinite linear;
+}
+.twitter:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .linkedin {
+  color: white;
+  background-color: #0077b5;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.linkedin::before {
+  animation: rotation 3s infinite linear;
+}
+.linkedin:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .youtube {
+  color: white;
+  background-color: #ff0000;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.youtube::before {
+  animation: rotation 3s infinite linear;
+}
+.youtube:hover {
+  filter: grayscale(100%);
+}
+.footer .myicons ul li .whatsapp {
+  color: white;
+  background-color: #075e54;
+  border-radius: 50%;
+  font-size: 25px;
+  transition: 1s;
+}
+.whatsapp::before {
+  animation: rotation 3s infinite linear;
+}
+.whatsapp:hover {
+  filter: grayscale(100%);
+}
+//animations
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

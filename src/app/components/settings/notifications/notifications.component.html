@@ -1,0 +1,41 @@
+<h1 class="text-capitalize text-center p-2 mt-4">notifications</h1>
+<p class="p-2 text-capitalize lh-lg fs-6">
+  you can turn off the Notification alert here "deafult is <span>on</span>"
+  <br />
+  <span>note :</span> you will not be able to know the latest and time limited
+  offers
+</p>
+<p class="p-2 text-capitalize lh-lg fs-6">
+  notification is <span>{{ note }}</span>
+</p>
+<form [formGroup]="group">
+  <div class="form-check fs-5 d-flex align-items-end gap-2 mb-3">
+    <input
+      class="form-check-input"
+      type="radio"
+      id="exampleRadios1"
+      value="on"
+      formControlName="onOff"
+    />
+    <label class="form-check-label" for="exampleRadios1">
+      Notification <span>On</span>
+    </label>
+  </div>
+  <div class="form-check fs-5 d-flex align-items-end gap-2 mb-5">
+    <input
+      class="form-check-input"
+      type="radio"
+      id="exampleRadios2"
+      value="off"
+      formControlName="onOff"
+    />
+    <label class="form-check-label" for="exampleRadios2">
+      Notification <span>Off</span>
+    </label>
+  </div>
+  <div class="savebtn">
+    <button (click)="submit()" type="submit" class="btn fw-bold w-100">
+      save
+    </button>
+  </div>
+</form>

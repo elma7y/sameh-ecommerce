@@ -1,0 +1,87 @@
+<div
+  class="register container-fluid d-flex align-items-center justify-content-center"
+>
+  <div
+    class="reg-form d-flex justify-content-center flex-column align-items-center"
+  >
+    <!-- reg-image -->
+    <img class="img-fluid" src="assets/images/profile/register.png" alt="" />
+    <!-- title -->
+    <div class="title text-capitalize">register</div>
+    <!-- reg-form -->
+    <form [formGroup]="register" (ngSubmit)="submit()">
+      <!-- username field -->
+      <div class="field">
+        <i class="bi bi-person-circle"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="UserName*"
+          formControlName="username"
+        />
+      </div>
+      <!-- username validation msg -->
+      <div [ngClass]="uservalidstyle" class="uservalid text-capitalize">
+        {{ usernamevalidmsg }}
+      </div>
+      <!-- password field -->
+      <div class="field mt-4">
+        <i class="bi bi-file-lock-fill"></i>
+        <input
+          [type]="showpass ? 'text' : 'password'"
+          class="form-control"
+          placeholder="Password*"
+          formControlName="password"
+        />
+        <i (click)="showpass = !showpass" class="bi bi-eye-fill eyes"></i>
+      </div>
+      <!-- password validation msg -->
+      <div [ngClass]="passwordvalidstyle" class="uservalid text-capitalize">
+        {{ passwordvalidmsg }}
+      </div>
+      <!-- confirm password field -->
+      <div class="field mt-4">
+        <i class="bi bi-file-lock-fill"></i>
+        <input
+          [type]="showpassconfirm ? 'text' : 'password'"
+          class="form-control"
+          placeholder="confirm password*"
+          formControlName="confirmpassword"
+        />
+        <i
+          (click)="showpassconfirm = !showpassconfirm"
+          class="bi bi-eye-fill eyes"
+        ></i>
+      </div>
+      <!-- password validation msg -->
+      <div [ngClass]="confirmpassstyle" class="uservalid text-capitalize">
+        {{ confrimpassmsg }}
+      </div>
+      <!-- email field -->
+      <div class="field mt-4">
+        <i class="bi bi-envelope-fill"></i>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email*"
+          formControlName="email"
+        />
+      </div>
+      <!-- email validation msg -->
+      <div [ngClass]="emailvalidstyle" class="uservalid text-capitalize">
+        {{ emailvalidmsg }}
+      </div>
+      <!-- submit button -->
+      <button [disabled]="!register.valid" type="submit" class="btn">
+        Submit
+      </button>
+    </form>
+    <!-- signin button -->
+    <div class="sign mt-4 d-flex flex-column">
+      <span class="text-capitalize fw-bold fs-5 text-center"
+        >already registed please</span
+      >
+      <button routerLink="/login" class="btn mt-4">Login</button>
+    </div>
+  </div>
+</div>

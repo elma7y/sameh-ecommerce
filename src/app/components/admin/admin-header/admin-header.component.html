@@ -1,0 +1,19 @@
+<div class="header mb-5">
+  <nav [ngStyle]="greenmode ? green : null" class="navbar fixed-top">
+    <div
+      class="container-fluid flex-column flex-lg-row flex-md-row flex-sm-row"
+    >
+      <div class="left-part">
+        <h1 class="text-capitalize fs-1 m-0 m-0 ms-lg-4 ms-md-4 ms-sm-4">
+          e-commerce
+        </h1>
+      </div>
+      <div class="right-part cart d-flex align-items-center gap-2 p-relative">
+        <img src="{{ profilepic }}" alt="" />
+        <button (click)="logout()" type="button" class="btn fw-bold">
+          LogOut
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
