@@ -31,7 +31,6 @@ export class AuthService {
   }
 
   register() {
-    localStorage.setItem('notify', 'on');
     if (localStorage.getItem(this.registerUsername)) {
       Swal.fire({
         icon: 'error',
@@ -100,9 +99,14 @@ export class AuthService {
     });
   }
   login() {
+    if (localStorage.getItem('mycolor')) {
+    } else {
+      localStorage.setItem('mycolor', '#051622');
+    }
     if (this.loginusername == 'admin' && this.loginpassword == 'admin123') {
       this.route.navigate(['/admin-home']);
       localStorage.setItem('state', 'admin');
+      localStorage.setItem('notify', 'on');
       localStorage.removeItem('Login');
       this.notfound = false;
     }
@@ -115,6 +119,7 @@ export class AuthService {
       this.route.navigate(['/home']);
       localStorage.setItem('userid', `${Math.round(Math.random() * 100)}`);
       localStorage.setItem('Login', 'success');
+      localStorage.setItem('notify', 'on');
       localStorage.removeItem('state');
       this.notfound = false;
       const Toast = Swal.mixin({
