@@ -58,6 +58,7 @@ $white: white;
     border-radius: 40px;
     .parent-ul {
       padding: 20px;
+      height: -webkit-fill-available;
       color: white;
       span {
         position: relative;

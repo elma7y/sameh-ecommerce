@@ -26,7 +26,7 @@ export class AppComponent implements DoCheck, OnInit {
   ngOnInit(): void {
     this.theme.setmaintheme();
     this.cartCheck();
-    this.notifications();
+    this.auth.notifications();
   }
   ngDoCheck(): void {
     this.headercheck();
@@ -61,90 +61,7 @@ export class AppComponent implements DoCheck, OnInit {
       this.hideHeader = true;
     }
   }
-  notifications() {
-    if (localStorage.getItem('notify') == 'on') {
-      setInterval(() => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          background: this.colorget(),
-          color: 'white',
-          iconColor: '#deb992',
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: 'info',
-          title: 'check out discounts on electronics',
-        });
-      }, 15000);
-      setInterval(() => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          background: this.colorget(),
-          color: 'white',
-          iconColor: '#deb992',
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: 'info',
-          title: 'check out discounts on mens clothes',
-        });
-      }, 30000);
-      setInterval(() => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          background: this.colorget(),
-          color: 'white',
-          iconColor: '#deb992',
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: 'info',
-          title: 'check out discounts on women clothes',
-        });
-      }, 45000);
-      setInterval(() => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          background: this.colorget(),
-          color: 'white',
-          iconColor: '#deb992',
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: 'info',
-          title: 'check out discounts on jeweleries',
-        });
-      }, 60000);
-    }
-  }
+
   admincheck() {
     if (
       this.route.url == '/admin-cart' ||

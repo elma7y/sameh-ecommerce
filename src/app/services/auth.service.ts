@@ -167,7 +167,7 @@ export class AuthService {
       confirmButtonAriaLabel: 'Thumbs up, great!',
       cancelButtonText: '<i class="fa fa-thumbs-down"></i> NO',
       cancelButtonAriaLabel: 'Thumbs down',
-      background: '#051622',
+      background: this.colorget(),
       color: 'white',
       iconColor: '#deb992',
       confirmButtonColor: '#1ba098',
@@ -182,5 +182,89 @@ export class AuthService {
   colorget(): string {
     let color = localStorage.getItem('mycolor')!;
     return color;
+  }
+  notifications() {
+    if (localStorage.getItem('notify') == 'on') {
+      setInterval(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: this.colorget(),
+          color: 'white',
+          iconColor: '#deb992',
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'check out discounts on electronics',
+        });
+      }, 15000);
+      setInterval(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: this.colorget(),
+          color: 'white',
+          iconColor: '#deb992',
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'check out discounts on mens clothes',
+        });
+      }, 30000);
+      setInterval(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: this.colorget(),
+          color: 'white',
+          iconColor: '#deb992',
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'check out discounts on women clothes',
+        });
+      }, 45000);
+      setInterval(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: this.colorget(),
+          color: 'white',
+          iconColor: '#deb992',
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'info',
+          title: 'check out discounts on jeweleries',
+        });
+      }, 60000);
+    }
   }
 }

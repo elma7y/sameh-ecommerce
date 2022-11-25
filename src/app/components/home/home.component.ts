@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { ThemesService } from './../../services/themes.service';
 import { Component, OnInit, DoCheck } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit, DoCheck {
   keyboard: boolean;
   green: any;
   greenmode: any;
-  constructor(private theme: ThemesService) {
+  constructor(private theme: ThemesService, private auth: AuthService) {
     this.interval = 2000;
     this.keyboard = true;
   }
@@ -21,7 +22,9 @@ export class HomeComponent implements OnInit, DoCheck {
     this.checktheme();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.notifications();
+  }
 
   checktheme() {
     if (localStorage.getItem('theme') == 'green') {
