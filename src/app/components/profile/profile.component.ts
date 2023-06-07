@@ -351,7 +351,6 @@ export class ProfileComponent implements OnInit, DoCheck {
     if (date.value != '') {
       localStorage.setItem('date', JSON.stringify(date.value));
       this.editdob = !this.editdob;
-      console.log(date.value);
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',

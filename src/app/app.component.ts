@@ -74,11 +74,8 @@ export class AppComponent implements DoCheck, OnInit {
       this.route.url == '/admin-settings'
     ) {
       this.headandfoot = false;
-      console.log("yesss")
     } else {
       this.headandfoot = true;
-      console.log("nooo");
-
     }
   }
   colorget(): string {
