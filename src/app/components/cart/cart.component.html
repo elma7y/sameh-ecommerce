@@ -1,0 +1,299 @@
+<section
+  [ngStyle]="greenmode ? green : null"
+  class="container"
+  *ngIf="!cartembty"
+>
+  <h2 class="title text-capitalize text-center fs-3 p-2">shopping cart</h2>
+  <div
+    class="up d-flex justify-content-around align-items-center mb-3 flex-column flex-lg-row flex-md-row"
+  >
+    <div class="head mb-3 mb-lg-0 mb-md-0">
+      <p class="text-capitalize fs-5 fw-bold m-0 p-2">
+        you have <span class="items fw-bold">{{ cartitems }}</span> item in the
+        cart
+      </p>
+    </div>
+    <div class="body">
+      <button (click)="clearCart()" class="btn text-capitalize fw-bold fs-5">
+        clear shooping cart
+      </button>
+    </div>
+  </div>
+  <div [ngStyle]="greenmode ? green : null" class="container">
+    <div class="row d-none d-lg-flex d-md-flex head">
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">name</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">price</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">
+          quantity
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">total</div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center p-2 men mb-3"
+      *ngFor="let men of service.menCart; let index = index"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ men.item.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ men.item.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">price : </span
+          >{{ men.item.price }} <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity mb-4 mb-lg-0 mb-md-0">
+        <div class="body d-flex justify-content-center align-items-center">
+          <button (click)="minusmen(index)" class="btn fw-bold fs-6">-</button>
+          <input
+            class="w-50"
+            type="number"
+            min="1"
+            [(ngModel)]="men.quantity"
+          />
+          <button (click)="plusmen(index)" class="btn fw-bold fs-6">+</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total mb-4 mb-lg-0 mb-md-0">
+        <div class="body fs-5 text-center pt-2 fw-bold">
+          <span class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none"
+            >total :</span
+          >{{ totalPrice(men.item.price, men.quantity) }}
+          <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 delete">
+        <div
+          class="body d-flex align-items-center justify-content-center justify-content-lg-start justify-content-md-start"
+        >
+          <button
+            (click)="deleteMenProduct(index)"
+            class="btn text-capitalize fw-bold fs-6"
+          >
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center p-2 men mb-3"
+      *ngFor="let women of service.womenCart; let index = index"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ women.item.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ women.item.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">price : </span>
+          {{ women.item.price }} <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity mb-4 mb-lg-0 mb-md-0">
+        <div class="body d-flex justify-content-center align-items-center">
+          <button (click)="minuswomen(index)" class="btn fw-bold fs-6">
+            -
+          </button>
+          <input
+            class="w-50"
+            type="number"
+            min="1"
+            [(ngModel)]="women.quantity"
+          />
+          <button (click)="pluswomen(index)" class="btn fw-bold fs-6">+</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total mb-4 mb-lg-0 mb-md-0">
+        <div class="body fs-5 text-center pt-2 fw-bold">
+          <span class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none"
+            >total :</span
+          >
+          {{ totalPrice(women.item.price, women.quantity) }}
+          <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 delete">
+        <div
+          class="body d-flex align-items-center justify-content-center justify-content-lg-start justify-content-md-start"
+        >
+          <button
+            (click)="deleteWomenProduct(index)"
+            class="btn text-capitalize fw-bold fs-6"
+          >
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center mb-3 p-2 men"
+      *ngFor="let jewel of service.jeleriesCart; let index = index"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ jewel.item.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ jewel.item.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">price : </span>
+          {{ jewel.item.price }} <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity mb-4 mb-lg-0 mb-md-0">
+        <div class="body d-flex justify-content-center align-items-center">
+          <button (click)="minusjewel(index)" class="btn fw-bold fs-6">
+            -
+          </button>
+          <input
+            class="w-50"
+            type="number"
+            min="1"
+            [(ngModel)]="jewel.quantity"
+          />
+          <button (click)="plusjewel(index)" class="btn fw-bold fs-6">+</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total mb-4 mb-lg-0 mb-md-0">
+        <div class="body fs-5 text-center pt-2 fw-bold">
+          <span class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none"
+            >total :</span
+          >
+          {{ totalPrice(jewel.item.price, jewel.quantity) }}
+          <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 delete">
+        <div
+          class="body d-flex align-items-center justify-content-center justify-content-lg-start justify-content-md-start"
+        >
+          <button
+            (click)="deleteJewelProduct(index)"
+            class="btn text-capitalize fw-bold fs-6"
+          >
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center mb-3 p-2 men"
+      *ngFor="let elect of service.elecCart; let index = index"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ elect.item.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ elect.item.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">price : </span>
+          {{ elect.item.price }} <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity mb-4 mb-lg-0 mb-md-0">
+        <div class="body d-flex justify-content-center align-items-center">
+          <button (click)="minusele(index)" class="btn fw-bold fs-6">-</button>
+          <input
+            class="w-50"
+            type="number"
+            min="1"
+            [(ngModel)]="elect.quantity"
+          />
+          <button (click)="plusele(index)" class="btn fw-bold fs-6">+</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total mb-4 mb-lg-0 mb-md-0">
+        <div class="body fs-5 text-center pt-2 fw-bold">
+          <span class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none"
+            >total :</span
+          >
+          {{ totalPrice(elect.item.price, elect.quantity) }}
+          <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 delete">
+        <div
+          class="body d-flex align-items-center justify-content-center justify-content-lg-start justify-content-md-start"
+        >
+          <button
+            (click)="deleteEleProduct(index)"
+            class="btn text-capitalize fw-bold fs-6"
+          >
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row fw-bold p-2 order-now">
+      <div
+        class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center justify-content-lg-end justify-content-md-end gap-5"
+      >
+        <div class="total d-flex align-items-center text-capitalize fs-5">
+          total: {{ total }} <span class="dollar">$</span>
+        </div>
+        <div class="order me-0 me-lg-5 me-md-5">
+          <button
+            [disabled]="disableorder"
+            (click)="
+              addnewCartele();
+              addnewCartmen();
+              addnewCartwomen();
+              addnewCartjewel();
+              history()
+            "
+            class="btn fw-bold text-capitalize"
+          >
+            order now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  [ngStyle]="greenmode ? green : null"
+  class="container d-flex justify-content-center align-items-center embty"
+  *ngIf="cartembty"
+>
+  <h1 class="text-capitalize fs-1">your cart is embty</h1>
+</div>

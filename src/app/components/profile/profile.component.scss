@@ -1,0 +1,169 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+.container {
+  background-color: $background-color;
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  .b-12 {
+    border-radius: 12px;
+  }
+  .title {
+    h1 {
+      background-color: $secondary-color;
+      color: $background-color;
+      font-weight: 500;
+      border: 2px solid $main-color;
+      transition: 1s;
+    }
+    h1:hover {
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+    }
+    img {
+      width: 90px;
+      height: 90px;
+      margin-top: -48px;
+      margin-bottom: 20px;
+      border-radius: 50px;
+      box-shadow: 0px 0px 2px $secondary-color, 0px 0px 0px 3px $secondary-color,
+        8px 8px 15px $secondary-color, -4px -4px 8px $secondary-color;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: 1s;
+    }
+    img:hover {
+      filter: grayscale(100%);
+    }
+  }
+  .box {
+    .head {
+      h2 {
+        max-width: 142px;
+        width: 142px;
+      }
+    }
+    i {
+      color: $secondary-color;
+      animation: colorchange 3s infinite linear;
+    }
+    input {
+      position: relative;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 19px;
+      text-align: center;
+      text-transform: capitalize;
+      background-color: $main-color;
+      border: 2px solid $secondary-color;
+      box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+    }
+    input:focus {
+      box-shadow: 0 0 15px $secondary-color;
+    }
+    .passcontainer {
+      width: 76%;
+      position: relative;
+      .eyes {
+        color: $background-color;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 25px;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .cal {
+        position: absolute;
+        color: $background-color;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 23px;
+        padding: 5px;
+        cursor: pointer;
+        animation: stop 3s infinite;
+      }
+    }
+    input:focus {
+      outline: none;
+    }
+    .eyes {
+      position: absolute;
+      animation: stop 3s infinite;
+    }
+    .edit {
+      > button {
+        background-color: $main-color;
+        border: 2px solid $secondary-color;
+        color: $background-color;
+        transition: 1s;
+        font-weight: bold;
+      }
+      > button:hover {
+        background-color: $secondary-color;
+        border: 2px solid $main-color;
+        color: $background-color;
+      }
+      .save {
+        background-color: $secondary-color;
+        border: 2px solid $main-color;
+        transition: 1s;
+        font-weight: bold;
+      }
+      .save:hover {
+        background-color: $main-color;
+        border: 2px solid $secondary-color;
+        color: $background-color;
+      }
+    }
+    .changepic {
+      width: 100%;
+      label {
+        cursor: pointer;
+        color: $background-color;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: $main-color;
+        border: 2px solid $secondary-color;
+        transition: 1s;
+        text-align: center;
+        font-weight: bold;
+        box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+      }
+      label:hover {
+        background-color: $secondary-color;
+        border: 2px solid $main-color;
+      }
+      input {
+        display: none;
+      }
+    }
+  }
+}
+// animations
+@keyframes colorchange {
+  0% {
+    color: $secondary-color;
+  }
+  50% {
+    color: $main-color;
+  }
+  100% {
+    color: $secondary-color;
+  }
+}
+@keyframes stop {
+  0% {
+    color: $background-color;
+  }
+  50% {
+    color: $secondary-color;
+  }
+  100% {
+    color: $background-color;
+  }
+}

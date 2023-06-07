@@ -1,0 +1,75 @@
+$background-color: #051622;
+$main-color: #deb992;
+$secondary-color: #1ba098;
+$white: white;
+.container {
+  background-color: $background-color;
+  padding: 30px;
+  border-radius: 25px;
+  h1 {
+    background-color: $secondary-color;
+    color: $background-color;
+    border: 2px solid $main-color;
+    transition: 1s;
+    font-weight: 500;
+  }
+  h1:hover {
+    background-color: $main-color;
+    border: 2px solid $secondary-color;
+  }
+  .admin-cart {
+    background-color: $secondary-color;
+    box-shadow: 0 0 10px $main-color;
+    transition: 1s;
+    .main {
+      .image {
+        position: relative;
+        transition: 1s;
+        animation: photoskew 3s infinite linear;
+        .first {
+          width: 320px;
+          height: 420px;
+        }
+        .sec {
+          width: 320px;
+          height: 420px;
+          position: absolute;
+          left: 0;
+          transition: 1s;
+        }
+        .sec:hover {
+          opacity: 0;
+        }
+      }
+
+      .cards-body {
+        h2 {
+          background-color: $background-color;
+          color: $main-color;
+          border: 2px solid $main-color;
+          transition: 1s;
+        }
+        h2:hover {
+          background-color: $main-color;
+          color: $background-color;
+          border: 2px solid $background-color;
+        }
+      }
+    }
+  }
+  .admin-cart:hover {
+    box-shadow: 0 0 20px $main-color;
+  }
+}
+// animations
+@keyframes photoskew {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.105);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

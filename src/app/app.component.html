@@ -1,0 +1,30 @@
+<div class="main d-flex flex-column justify-content-between">
+  <div class="container-fluid d-flex flex-column">
+    <ng-container *ngIf="headandfoot">
+      <ng-container *ngIf="hideHeader">
+        <app-header></app-header>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!headandfoot">
+      <app-admin-header></app-admin-header>
+    </ng-container>
+    <div class="pages" *ngIf="hideHeader">
+      <ng-container>
+        <router-outlet></router-outlet>
+      </ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="headandfoot">
+    <div class="footer" *ngIf="hideHeader">
+      <app-footer></app-footer>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!headandfoot">
+    <div class="footer">
+      <app-admin-footer></app-admin-footer>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!hideHeader">
+    <router-outlet></router-outlet>
+  </ng-container>
+</div>

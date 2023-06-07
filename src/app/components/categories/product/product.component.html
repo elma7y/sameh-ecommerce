@@ -1,0 +1,34 @@
+<div class="cards">
+  <div routerLink="/product-details/{{ Product.id }}">
+    <img src="{{ Product.image }}" class="card-img-top mb-2" alt="..." />
+    <div class="cards-body">
+      <h5 class="cards-title">{{ Product.title }}</h5>
+      <p class="cards-text">
+        {{ Product.description }}
+      </p>
+    </div>
+  </div>
+  <div class="cards-footer d-flex justify-content-between align-items-center">
+    <button
+      (click)="shownumber = !shownumber"
+      *ngIf="shownumber"
+      class="btn text-capitalize"
+    >
+      add to cart
+    </button>
+    <div class="d-flex gap-3 amount" *ngIf="!shownumber">
+      <input id="adds" class="in" type="number" [(ngModel)]="amount" min="1" />
+      <button
+        [disabled]="disableadd"
+        class="btn"
+        (click)="add()"
+        (click)="shownumber = !shownumber"
+      >
+        Add
+      </button>
+    </div>
+    <span class="price fs-6"
+      >{{ Product.price }} <span class="sign">$</span></span
+    >
+  </div>
+</div>

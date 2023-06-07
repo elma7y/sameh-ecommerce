@@ -1,0 +1,116 @@
+<div class="complete-reg d-flex align-items-center justify-content-center">
+  <div
+    class="container d-flex justify-content-center flex-column align-items-center"
+  >
+    <!-- reg-image -->
+    <img
+      class="img-fluid"
+      src="{{ picture }}"
+      alt="assets/images/profile/register.png"
+    />
+    <!-- title -->
+    <div class="title text-capitalize">complete-registration</div>
+    <!-- reg-form -->
+    <form [formGroup]="completeregister" (ngSubmit)="submit()">
+      <!-- f and l names -->
+      <div
+        class="names d-flex gap-3 flex-column flex-lg-row flex-xxl-row flex-xl-row flex-md-row flex-sm-row"
+      >
+        <!-- firstname field -->
+        <div class="field">
+          <i class="bi bi-person-circle"></i>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First Name"
+            formControlName="firstname"
+          />
+        </div>
+        <!-- lastname filed -->
+        <div class="field">
+          <i class="bi bi-person-circle"></i>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last Name"
+            formControlName="lastname"
+          />
+        </div>
+      </div>
+      <!-- mobile number field -->
+      <div class="field mt-4">
+        <i class="bi bi-phone-fill"></i>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Mobile Number"
+          formControlName="mobilenumber"
+        />
+      </div>
+      <!-- date field -->
+      <div class="field mt-4">
+        <div class="input-group">
+          <input
+            class="form-control"
+            placeholder="Date Of Birth"
+            name="dp"
+            formControlName="date"
+            ngbDatepicker
+            #d="ngbDatepicker"
+            [minDate]="{ year: 1950, month: 1, day: 1 }"
+            [maxDate]="{ year: 2022, month: 12, day: 31 }"
+            (focus)="open()"
+          />
+          <i
+            id="mydate"
+            (click)="d.toggle()"
+            class="bi bi-calendar-date-fill"
+          ></i>
+        </div>
+      </div>
+      <!-- gender field -->
+      <div
+        class="gender d-flex gap-3 mt-4 flex-column flex-lg-row flex-xxl-row flex-xl-row flex-md-row flex-sm-row mb-3"
+      >
+        <div class="check form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Male"
+            id="male"
+            formControlName="gender"
+          />
+          <label class="form-check-label" for="male"> Male </label>
+          <i class="bi bi-gender-male"></i>
+        </div>
+        <div class="check form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="Female"
+            id="Female"
+            formControlName="gender"
+          />
+          <label class="form-check-label" for="Female"> Female </label>
+          <i class="bi bi-gender-female"></i>
+        </div>
+      </div>
+      <!-- profilepic filed -->
+      <div class="profilepic text-center text-capitalize fs-5 fw-bold">
+        <label for="mypic">
+          choose a profile pic
+          <input
+            accept="image/png, image/gif, image/jpeg"
+            id="mypic"
+            type="file"
+            (change)="acceptpic($event)"
+          />
+        </label>
+      </div>
+      <!-- submit button -->
+      <button [disabled]="completeregister.invalid" type="submit" class="btn">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

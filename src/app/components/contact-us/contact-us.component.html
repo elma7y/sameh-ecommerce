@@ -1,0 +1,75 @@
+<section
+  [ngStyle]="greenmode ? green : null"
+  class="container d-flex justify-content-center flex-column"
+>
+  <div class="head">
+    <h1 class="text-capitalize text-center p-2 mb-5">contact us</h1>
+  </div>
+  <div class="body d-flex justify-content-center">
+    <h2 class="text-capitalize p-2 mb-5">send us an email</h2>
+  </div>
+  <div class="body d-flex justify-content-center">
+    <h3 class="text-capitalize text-center text-white-50 mb-5 fs-5">
+      we will be happy hearing from you
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <form
+        class="d-flex justify-content-center"
+        [formGroup]="message"
+        (ngSubmit)="sendmsg(message.value)"
+      >
+        <div class="myform d-flex flex-column justify-content-center p-3 mb-5">
+          <input
+            class="text-capitalize ps-3 mb-2"
+            type="text"
+            id="name"
+            placeholder="name"
+            formControlName="name"
+            autofocus
+          />
+          <span
+            [ngClass]="namevalidstyle"
+            class="namemsg text-capitalize mb-2 p-2 fs-6"
+            >{{ namevalidmsg }}</span
+          >
+          <input
+            class="ps-3 mb-2"
+            type="email"
+            id="email"
+            placeholder="email"
+            formControlName="email"
+          />
+          <span
+            [ngClass]="emailvalidstyle"
+            class="emailmsg text-capitalize mb-2 p-2 fs-6"
+            >{{ emailvalidmsg }}</span
+          >
+          <textarea
+            class="text-capitalize ps-3 pt-3 mb-2"
+            id="msg"
+            cols="30"
+            rows="10"
+            placeholder="your message"
+            formControlName="msg"
+          ></textarea>
+          <span
+            [ngClass]="msgvalidstyle"
+            class="textmsg text-capitalize mb-4 p-2 fs-6"
+            >{{ msgvalidmsg }}</span
+          >
+          <div class="send d-flex justify-content-center mb-2">
+            <button
+              [disabled]="message.invalid"
+              type="submit"
+              class="btn text-capitalize fs-5 w-50"
+            >
+              send
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

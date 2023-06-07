@@ -1,0 +1,77 @@
+<section [ngStyle]="greenmode ? green : null" class="container">
+  <h2 class="title text-capitalize text-center fs-3 p-2">men's cart</h2>
+  <div
+    class="button d-flex justify-content-center justify-content-lg-start justify-content-md-start mt-5"
+  >
+    <div class="col-lg-3 col-md-3 col-sm-3 name text-end">
+      <button
+        (click)="openDialog()"
+        class="btn text-capitalize fs-5 fw-bold w-100"
+      >
+        add product
+      </button>
+    </div>
+  </div>
+  <div [ngStyle]="greenmode ? green : null" class="container">
+    <div class="row d-none d-lg-flex d-md-flex justify-content-center head">
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">name</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 desc">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">
+          describton
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">price</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">update</div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center p-2 men mb-3"
+      *ngFor="let men of menproducts"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ men.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ men.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 desc">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">desc : </span>
+          {{ men.description }}
+        </div>
+      </div>
+      <div
+        class="col-lg-2 col-md-2 col-sm-2 price mb-4 mb-lg-0 mb-md-0 mt-4 mt-lg-0 mt-md-0"
+      >
+        <p class="text-center m-0 fs-5 fw-bold">
+          <span
+            class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none d-sm-none me-2"
+            >price :
+          </span>
+          {{ men.price }} <span class="dollar">$</span>
+        </p>
+      </div>
+      <div
+        class="col-lg-2 col-md-2 col-sm-2 update mb-4 mb-lg-0 mb-md-0 mt-4 mt-lg-0 mt-md-0"
+      >
+        <button (click)="openDialog(); update(men)" class="btn w-100">
+          update
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section [ngStyle]="greenmode ? green : null" *ngIf="spinner" class="container">
+  <app-spinner></app-spinner>
+</section>

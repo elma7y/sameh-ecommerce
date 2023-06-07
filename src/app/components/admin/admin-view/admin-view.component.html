@@ -1,0 +1,78 @@
+<section [ngStyle]="greenmode ? green : null" class="container">
+  <h2 class="title text-capitalize text-center fs-3 p-2">view cart</h2>
+  <div [ngStyle]="greenmode ? green : null" class="container">
+    <div class="row d-none d-lg-flex d-md-flex head">
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">name</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">price</div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">
+          quantity
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total">
+        <div class="head mb-5 fs-4 text-capitalize text-center p-1">total</div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center p-2 men mb-3"
+      *ngFor="let cart of mycart"
+    >
+      <div class="col-lg-2 col-md-2 col-sm-2 image">
+        <div class="body mb-4 mb-lg-0 mb-md-0">
+          <img class="img-fluid" src="{{ cart.item.image }}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 name">
+        <div
+          class="body fs-6 text-center text-lg-start text-md-start mb-4 mb-lg-0 mb-md-0 fw-bold"
+        >
+          {{ cart.item.title }}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 price">
+        <div class="body fs-5 text-center pt-2 mb-4 mb-lg-0 mb-md-0 fw-bold">
+          <span class="fs-4 d-inline-block d-lg-none d-md-none">price : </span>
+          {{ cart.item.price }} <span class="dollar">$</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 quantity mb-4 mb-lg-0 mb-md-0">
+        <p class="text-center m-0 fs-5 fw-bold">
+          <span
+            class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none d-sm-none me-2"
+            >quantity:
+          </span>
+          {{ cart.quantity }}
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 total mb-4 mb-lg-0 mb-md-0">
+        <div class="body fs-5 text-center pt-2 fw-bold">
+          <span class="fs-4 text-capitalize d-inline-block d-lg-none d-md-none"
+            >total :</span
+          >
+          {{ getTotal(cart.item.price, cart.quantity) }}
+          <span class="dollar">$</span>
+        </div>
+      </div>
+    </div>
+    <div class="row fw-bold p-2 order-now">
+      <div
+        class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center justify-content-lg-end justify-content-md-end gap-5"
+      >
+        <div class="total d-flex align-items-center text-capitalize fs-5">
+          total:
+          {{ total }} $
+        </div>
+        <div class="order me-0 me-lg-5 me-md-5"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer d-flex justify-content-center">
+    <button (click)="back()" class="btn w-50 fs-5">back</button>
+  </div>
+  <button></button>
+</section>

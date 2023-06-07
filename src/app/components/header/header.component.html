@@ -1,0 +1,136 @@
+<div class="header">
+  <nav [ngStyle]="greenmode ? green : null" class="navbar fixed-top">
+    <div class="container-fluid">
+      <div class="left-part d-flex align-items-center mb-2">
+        <!-- toggle -->
+        <a
+          class="btn fs-2"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <i class="bi bi-list"></i>
+        </a>
+        <!-- sidebar -->
+        <div
+          [ngStyle]="greenmode ? green : null"
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div [ngStyle]="greenmode ? green : null" class="offcanvas-header">
+            <!-- tilte -->
+            <h5
+              class="offcanvas-title fs-1 text-capitalize m-0"
+              id="offcanvasExampleLabel"
+            >
+              e-commerce
+            </h5>
+            <!-- close button -->
+            <button
+              id="close"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body justify-content-center">
+            <ul class="parent-ul fs-4 d-flex flex-column">
+              <li
+                routerLinkActive="active"
+                (click)="sideClose()"
+                routerLink="/home"
+              >
+                home
+              </li>
+              <li
+                routerLinkActive="active"
+                (click)="sideClose()"
+                routerLink="/settings"
+              >
+                settings
+              </li>
+              <li
+                routerLinkActive="active"
+                (click)="sideClose()"
+                routerLink="/profile"
+              >
+                profile
+              </li>
+              <span class="fw-bold">categories</span>
+              <ul class="child-ul p-0">
+                <li
+                  routerLinkActive="active"
+                  (click)="sideClose()"
+                  routerLink="/electronics"
+                >
+                  electronics
+                </li>
+                <li
+                  routerLinkActive="active"
+                  (click)="sideClose()"
+                  routerLink="/jewelries"
+                >
+                  jewelries
+                </li>
+                <li
+                  routerLinkActive="active"
+                  (click)="sideClose()"
+                  routerLink="/men-clothing"
+                >
+                  men's clothing
+                </li>
+                <li
+                  routerLinkActive="active"
+                  (click)="sideClose()"
+                  routerLink="/women-clothing"
+                >
+                  women's clothing
+                </li>
+              </ul>
+              <li
+                routerLinkActive="active"
+                (click)="sideClose()"
+                routerLink="/about-us"
+              >
+                abouts us
+              </li>
+              <li
+                routerLinkActive="active"
+                (click)="sideClose()"
+                routerLink="/contact-us"
+              >
+                contact us
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h1 class="text-capitalize fs-1 m-0 ms-4">e-commerce</h1>
+      </div>
+      <div class="container-fluid search">
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            name="searchbar"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn fw-bold" type="button">Search</button>
+        </form>
+      </div>
+      <div class="cart d-flex align-items-center gap-2 p-relative">
+        <i routerLink="cart" class="bi bi-cart4"
+          ><span>{{ total }}</span></i
+        >
+        <img routerLink="/profile" src="{{ profilepic }}" alt="" />
+        <button (click)="logout()" type="button" class="btn fw-bold">
+          LogOut
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,21 @@
+<section class="container mt-4">
+  <h1 class="text-capitalize text-center p-2">History</h1>
+  <div
+    class="d-flex gap-3"
+    *ngFor="let onehistory of history; let index = index"
+  >
+    <span class="mb-4 p-2 d-flex align-items-center fs-6 fw-bold">{{
+      index + 1
+    }}</span>
+    <p class="mb-4 p-2 fs-6 text-capitalize fw-bold">
+      {{ onehistory }}
+    </p>
+  </div>
+  <button
+    [disabled]="cleardisabled"
+    class="text-capitalize btn fw-bold w-100 mb-5"
+    (click)="clearhistory()"
+  >
+    clear history
+  </button>
+</section>
